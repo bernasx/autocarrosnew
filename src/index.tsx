@@ -17,7 +17,8 @@ const router = createBrowserRouter([
         path: "/lines",
         element: <Layout> <Lines/> </Layout>,
       },
-  ]);
+  ],
+  {basename: "/autocarros/"});
 const container = document.getElementById('root') as HTMLDivElement
 const root = createRoot(container)
 
