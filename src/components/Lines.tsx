@@ -36,7 +36,7 @@ function Lines() {
 
     return (
       <div className='w-full flex items-center justify-center mt-4 mb-4'>
-        <div className="grid grid-cols-6 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
           {lineCards}
         </div>
       </div>
