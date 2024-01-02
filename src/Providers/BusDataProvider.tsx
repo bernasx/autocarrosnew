@@ -6,33 +6,32 @@ const BusDataContext = createContext<Bus[]>([]);
 const BusDataProvider = ({ children }: any) => {
   // the value that will be given to the context
   const [data, setData] = useState<Bus[]>([]);
-  // fetch a user from a fake backend API
-  useEffect(() => {
-    // fetch data
-    const dataFetch = async () => {
 
-      const fetchData = await (
-        await fetch(
-          'https://broker.fiware.urbanplatform.portodigital.pt/v2/entities?q=vehicleType==bus&limit=1000'
-        )
-      ).json()
+  // fetch data
+  const busDataFetch = async () => {
+    const fetchData = await (
+      await fetch(
+        'https://broker.fiware.urbanplatform.portodigital.pt/v2/entities?q=vehicleType==bus&limit=1000'
+      )
+    ).json() as any[]
 
-      if(data) {
-        const buses = fetchData.map(x => ({busNumber:x.fleetVehicleId.value, 
-          route:decodeURIComponent(x.annotations.value[0]), 
-          shift:x.annotations.value[1], 
-          travelNumber:x.annotations.value[2], 
-          way:x.annotations.value[3], 
-          coordinates:x.location.value.coordinates})
-          ) as [Bus]
-    
-          setData(buses)
-      }
+    if(data) {
+      const buses = fetchData.map(x => ({busNumber:x.fleetVehicleId.value, 
+        route:decodeURIComponent(x.annotations.value[0]), 
+        shift:x.annotations.value[1], 
+        travelNumber:x.annotations.value[2], 
+        way:x.annotations.value[3], 
+        coordinates:x.location.value.coordinates})
+        ) as [Bus]
 
+        setData(buses)
     }
+  }
 
-    dataFetch()
+  useEffect(() => {
+    busDataFetch()
   }, [])
+
   return (
     // the Provider gives access to the context to its children
     <BusDataContext.Provider value={data}>
@@ -41,4 +40,4 @@ const BusDataProvider = ({ children }: any) => {
   );
 };
 
-export { BusDataContext, BusDataProvider };
+export { BusDataContext, BusDataProvider,  };

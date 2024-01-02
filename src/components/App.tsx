@@ -7,7 +7,7 @@ function App() {
  
   const busData = useContext<Bus[]>(BusDataContext)
 
-  if (busData) {
+  if (busData.length != 0) {
     
     const buses = busData.sort((a,b) => (a.busNumber > b.busNumber) ? 1 : ((b.busNumber > a.busNumber) ? -1 : 0))
     const busTiles = buses.map(x => <BusTile key={x.busNumber + x.route} bus={x} />)

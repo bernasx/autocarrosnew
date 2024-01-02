@@ -1,4 +1,3 @@
-import App from 'components/App'
 import { Link } from "react-router-dom";
 import { ReactNode } from 'react'
 type Props = {
@@ -6,7 +5,7 @@ type Props = {
   title?: string
 }
 
-const Layout = ({ children, title = 'Portfolio' }: Props) => {
+const Layout = ({ children}: Props) => {
   return (
     <div>
       <div className='flex justify-center align-center mt-2'>

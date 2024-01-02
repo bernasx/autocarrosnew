@@ -6,7 +6,7 @@ function Lines() {
     
   const busData = useContext<Bus[]>(BusDataContext)
   
-  if (busData) {
+  if (busData.length != 0) {
     
     let lines = [...new Set(busData.map(bus => bus.route))].sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0));
     const lineCards = lines.map(x => <LineCard key={x} buses={busData.filter(bus => bus.route === x).sort((a,b) =>(a > b) ? 1 : ((b > a) ? -1 : 0) )} lineNumber={x} />)
