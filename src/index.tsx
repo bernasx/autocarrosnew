@@ -8,6 +8,7 @@ import {
 import App from 'components/App'
 import Lines from 'components/Lines'
 import Layout from 'components/Layout/Layout';
+import { BusDataProvider } from 'Providers/BusDataProvider';
 const router = createBrowserRouter([
     {
       path: "/",
@@ -24,7 +25,9 @@ const root = createRoot(container)
 
 root.render(
     <StrictMode>
+      <BusDataProvider>
         <RouterProvider router={router} />
+      </BusDataProvider>
     </StrictMode>
   )
 

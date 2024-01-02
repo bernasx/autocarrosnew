@@ -1,38 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
+import { BusDataContext } from 'Providers/BusDataProvider'
 import Bus from "models/Bus"
 import LineCard from 'components/LineCard/LineCard'
 function Lines() {
     
-  const [data, setData] = useState<[any]>()
-  useEffect(() => {
-    // fetch data
-    const dataFetch = async () => {
-      const data = await (
-        await fetch(
-          'https://broker.fiware.urbanplatform.portodigital.pt/v2/entities?q=vehicleType==bus&limit=1000'
-        )
-      ).json()
-
-      // set state when the data received
-      setData(data)
-    }
-
-    dataFetch()
-  }, [])
-
+  const busData = useContext<Bus[]>(BusDataContext)
   
-  if (data) {
-    let buses = data.map(x => ({busNumber:x.fleetVehicleId.value, 
-      route:decodeURIComponent(x.annotations.value[0]), 
-      shift:x.annotations.value[1], 
-      travelNumber:x.annotations.value[2], 
-      way:x.annotations.value[3], 
-      coordinates:x.location.value.coordinates})
-      ) as [Bus]
+  if (busData) {
     
-    let lines = [...new Set(buses.map(bus => bus.route))].sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0));
-
-    const lineCards = lines.map(x => <LineCard key={x} buses={buses.filter(bus => bus.route === x)} lineNumber={x} />)
+    let lines = [...new Set(busData.map(bus => bus.route))].sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0));
+    const lineCards = lines.map(x => <LineCard key={x} buses={busData.filter(bus => bus.route === x).sort((a,b) =>(a > b) ? 1 : ((b > a) ? -1 : 0) )} lineNumber={x} />)
 
     return (
       <div className='w-full flex items-center justify-center mt-4 mb-4'>

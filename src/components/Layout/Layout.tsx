@@ -10,8 +10,8 @@ const Layout = ({ children, title = 'Portfolio' }: Props) => {
   return (
     <div>
       <div className='flex justify-center align-center mt-2'>
-        <Link to='/' className='bg-sky-600 p-2 rounded text-white mr-1 w-16 text-center'>Home</Link>
-        <Link to='/lines' className='bg-sky-600 p-2 rounded text-white ml-1 w-16 text-center'>Lines</Link>
+        <Link to='/' className='bg-sky-600 p-2 rounded text-white mr-1 w-32 text-center'>Autocarros</Link>
+        <Link to='/lines' className='bg-sky-600 p-2 rounded text-white ml-1 w-32 text-center'>Linhas</Link>
       </div>
       <div className="fit-screen">
         {children}
