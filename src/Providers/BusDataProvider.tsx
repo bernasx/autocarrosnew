@@ -40,4 +40,4 @@ const BusDataProvider = ({ children }: any) => {
   );
 };
 
-export { BusDataContext, BusDataProvider,  };
+export { BusDataContext, BusDataProvider };
