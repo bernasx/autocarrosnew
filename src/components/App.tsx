@@ -1,13 +1,12 @@
 import { useContext } from 'react'
 import { BusDataContext } from 'Providers/BusDataProvider'
 import BusTile from 'components/BusTile/BusTile'
-import Bus from "models/Bus"
-
+import { BusDataProviderValue } from "types/types";
 function App() {
  
-  const busData = useContext<Bus[]>(BusDataContext)
+  const {data:busData} = useContext<BusDataProviderValue>(BusDataContext)
 
-  if (busData.length != 0) {
+  if (busData && busData.length != 0) {
     
     const buses = busData.sort((a,b) => (a.busNumber > b.busNumber) ? 1 : ((b.busNumber > a.busNumber) ? -1 : 0))
     const busTiles = buses.map(x => <BusTile key={x.busNumber + x.route} bus={x} />)

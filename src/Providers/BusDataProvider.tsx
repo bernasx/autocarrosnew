@@ -1,11 +1,13 @@
 import { createContext, useState, useEffect } from "react";
 import Bus from "models/Bus";
+import { BusDataProviderValue } from "types/types";
 // create context
-const BusDataContext = createContext<Bus[]>([]);
+const BusDataContext = createContext<BusDataProviderValue>({data:undefined, busDataFetch:Function});
 
 const BusDataProvider = ({ children }: any) => {
   // the value that will be given to the context
   const [data, setData] = useState<Bus[]>([]);
+
 
   // fetch data
   const busDataFetch = async () => {
@@ -34,7 +36,7 @@ const BusDataProvider = ({ children }: any) => {
 
   return (
     // the Provider gives access to the context to its children
-    <BusDataContext.Provider value={data}>
+    <BusDataContext.Provider value={{data, busDataFetch}}>
       {children}
     </BusDataContext.Provider>
   );

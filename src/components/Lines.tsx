@@ -1,12 +1,12 @@
 import { useContext } from 'react'
 import { BusDataContext } from 'Providers/BusDataProvider'
-import Bus from "models/Bus"
 import LineCard from 'components/LineCard/LineCard'
+import { BusDataProviderValue } from "types/types";
 function Lines() {
     
-  const busData = useContext<Bus[]>(BusDataContext)
+  const {data:busData} = useContext<BusDataProviderValue>(BusDataContext)
   
-  if (busData.length != 0) {
+  if (busData && busData.length != 0) {
     
     let lines = [...new Set(busData.map(bus => bus.route))].sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0));
     const lineCards = lines.map(x => <LineCard key={x} buses={busData.filter(bus => bus.route === x).sort((a,b) =>(a > b) ? 1 : ((b > a) ? -1 : 0) )} lineNumber={x} />)
