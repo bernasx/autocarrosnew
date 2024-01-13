@@ -19,8 +19,8 @@ const BusDataProvider = ({ children }: any) => {
 
     if(data) {
       const buses = fetchData.map(x => ({busNumber:x.fleetVehicleId.value, 
-        route:decodeURIComponent(x.annotations.value[0]), 
-        shift:x.annotations.value[1], 
+        route:decodeURIComponent(x.annotations.value[0]).slice(11,14), 
+        shift:x.annotations.value[1].slice(18,20), 
         travelNumber:x.annotations.value[2], 
         way:x.annotations.value[3], 
         coordinates:x.location.value.coordinates})

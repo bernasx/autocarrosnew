@@ -17,6 +17,7 @@ const Layout = ({ children}: Props) => {
       <div className='flex justify-center align-center mt-2'>
         <Link to='/' className='bg-sky-600 p-2 rounded text-white mr-1 w-32 text-center'>Autocarros</Link>
         <Link to='/lines' className='bg-sky-600 p-2 rounded text-white ml-1 mr-1 w-32 text-center'>Linhas</Link>
+        <Link to='/rares' className='bg-sky-600 p-2 rounded text-white ml-1 mr-1 w-32 text-center'>Raridades</Link>
         <IconButton className="bg-green-600 p-2 rounded text-white ml-1 w-12 flex justify-center items-center" onClick={busDataFetch} icon={IoIosRefresh} size={20} />
       </div>
       <div className="fit-screen">

@@ -7,6 +7,7 @@ import {
   } from "react-router-dom";
 import App from 'components/App'
 import Lines from 'components/Lines'
+import Rares from 'components/Rares';
 import Layout from 'components/Layout/Layout';
 import { BusDataProvider } from 'Providers/BusDataProvider';
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
     {
         path: "/lines",
         element: <Layout> <Lines/> </Layout>,
+      },
+      {
+        path: "/rares",
+        element: <Layout> <Rares/> </Layout>,
       },
   ],
   {basename: "/autocarros/"});

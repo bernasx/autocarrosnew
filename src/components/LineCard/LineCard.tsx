@@ -10,7 +10,7 @@ const LineCard = ({buses, lineNumber}:LineCardProps) => {
 
     return (
         <div className="flex flex-col items-center bg-sky-400 border border-none rounded w-32">
-            <p className="text-white">{`Linha ${lineNumber.slice(11,14)}`}</p>
+            <p className="text-white">{`Linha ${lineNumber}`}</p>
             {busDisplay}
         </div>
     )
