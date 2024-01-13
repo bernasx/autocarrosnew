@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { BusDataContext } from 'Providers/BusDataProvider'
+import LoadingSpinner from './LoadingSpinner/LoadingSpiner';
 import LineCard from 'components/LineCard/LineCard'
 import { BusDataProviderValue, RareLine } from "types/types";
 import Buslines from "buslines.json"
@@ -29,7 +30,7 @@ function Rares() {
       </div>
     )
   } else {
-    return <div>A carregar dados...</div>
+    return <LoadingSpinner/>
   }
 
 }

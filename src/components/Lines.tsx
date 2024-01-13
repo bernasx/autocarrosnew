@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { BusDataContext } from 'Providers/BusDataProvider'
 import LineCard from 'components/LineCard/LineCard'
+import LoadingSpinner from './LoadingSpinner/LoadingSpiner';
 import { BusDataProviderValue } from "types/types";
 function Lines() {
     
@@ -19,7 +20,7 @@ function Lines() {
       </div>
     )
   } else {
-    return <div>A carregar dados...</div>
+    return <LoadingSpinner/>
   }
 
 }
