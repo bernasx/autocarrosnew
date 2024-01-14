@@ -15,8 +15,10 @@ function Rares() {
     .sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0));
     
     const lineCards = lines.map(x => <LineCard key={x} buses={busData
-            .filter( bus => (bus.route === x) && !(rareLines[x]?.includes(bus.busNumber)))
-            .sort((a,b) =>(a > b) ? 1 : ((b > a) ? -1 : 0) )} 
+            .filter( bus => (bus.route === x) 
+            && !(rareLines[x]?.includes(bus.busNumber)) 
+            && !(rareLines["abatidos"]?.includes(bus.busNumber)) 
+            ).sort((a,b) =>(a > b) ? 1 : ((b > a) ? -1 : 0) )} 
             lineNumber={x} 
         />)
         .filter(card => card.props.buses.length > 0)
