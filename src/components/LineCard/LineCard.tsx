@@ -11,8 +11,8 @@ const LineCard = ({buses, lineNumber}:LineCardProps) => {
     const busDisplay = buses.map(x => <LineBusTile bus={x}/>)
 
     return (
-        <div className={`flex flex-col items-center bg-${getLineColor(lineNumber)} border border-none rounded w-36`}>
-            <p className="text-white">{`Linha ${lineNumber}`}</p>
+        <div className={`flex flex-col items-center bg-${getLineColor(lineNumber)} border border-none rounded w-36 pb-2`}>
+            <p className="text-white mt-1 text-xl">{`Linha ${lineNumber}`}</p>
             {busDisplay}
         </div>
     )
