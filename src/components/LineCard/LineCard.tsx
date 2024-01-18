@@ -1,4 +1,6 @@
 import Bus from "models/Bus"
+import { getLineColor } from "utils"
+import LineBusTile from "../LineBusTile/LineBusTile"
 export interface LineCardProps {
     buses: [Bus] | Bus[],
     lineNumber: string
@@ -6,10 +8,10 @@ export interface LineCardProps {
 
 const LineCard = ({buses, lineNumber}:LineCardProps) => {
 
-    const busDisplay = buses.map(x => <div>{x.busNumber}</div>)
+    const busDisplay = buses.map(x => <LineBusTile bus={x}/>)
 
     return (
-        <div className="flex flex-col items-center bg-sky-400 border border-none rounded w-32">
+        <div className={`flex flex-col items-center bg-${getLineColor(lineNumber)} border border-none rounded w-36`}>
             <p className="text-white">{`Linha ${lineNumber}`}</p>
             {busDisplay}
         </div>
