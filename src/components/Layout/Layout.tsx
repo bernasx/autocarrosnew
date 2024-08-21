@@ -31,7 +31,7 @@ const Layout = ({ children}: Props) => {
   return (
     <div>
       <div className='flex justify-center align-center mt-2'>
-        <Link to='/autocarros' className='bg-slate-500 p-2 rounded text-white mr-1 w-32 text-center'>Autocarros</Link>
+        <Link to='/' className='bg-slate-500 p-2 rounded text-white mr-1 w-32 text-center'>Autocarros</Link>
         <Link to='/lines' className='bg-slate-500 p-2 rounded text-white ml-1 mr-1 w-32 text-center'>Linhas</Link>
         <Link to='/rares' className='bg-slate-500 p-2 rounded text-white ml-1 mr-1 w-32 text-center'>Raridades</Link>
         <IconButton
