@@ -13,7 +13,7 @@ const BusDataProvider = ({ children }: any) => {
   const busDataFetch = async () => {
     const fetchData = await (
       await fetch(
-        'https://broker.urbanplatform.portodigital.pt/v2/entities?q=vehicleType==bus&limit=1000'
+        'https://broker.fiware.urbanplatform.portodigital.pt/v2/entities?q=vehicleType==bus&limit=1000'
       )
     ).json() as any[]
 
